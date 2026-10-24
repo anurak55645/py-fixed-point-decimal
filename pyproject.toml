@@ -1,6 +1,6 @@
 [project]
 name = "py-fixed-point-decimal"
-version = "0.1.0"
+version = "0.1.1"
 description = "Fixed-point decimal arithmetic with two fractional digits, stored as integer hundredths."
 requires-python = ">=3.10"
 dependencies = []
