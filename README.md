@@ -33,3 +33,10 @@ Multiplication and division **truncate toward zero**, never round. `FixedPointDe
 Floats are not accepted by the constructor. Converting a binary float to fixed-point would silently import the float's representation error. If you have a float, pass it through `str()` first so the rounding is explicit.
 
 Division by another `FixedPointDecimal` divides the scaled integers and truncates: `FixedPointDecimal("10.00") / FixedPointDecimal("3.00")` is `3.33`, not `3.33...`. This mirrors Python's integer division and avoids any hidden precision.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
